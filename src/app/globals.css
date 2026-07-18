@@ -1,0 +1,892 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* 科技未来大屏主题 - 深色基调 */
+:root {
+  --radius: 0.5rem;
+  /* 深色背景层 */
+  --background: oklch(0.16 0.02 240);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.22 0.025 240);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.22 0.025 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.7 0.18 200);
+  --primary-foreground: oklch(0.16 0.02 240);
+  --secondary: oklch(0.28 0.03 240);
+  --secondary-foreground: oklch(0.95 0.01 240);
+  --muted: oklch(0.25 0.02 240);
+  --muted-foreground: oklch(0.7 0.02 240);
+  --accent: oklch(0.7 0.18 200);
+  --accent-foreground: oklch(0.16 0.02 240);
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(0.3 0.03 240 / 50%);
+  --input: oklch(0.25 0.02 240);
+  --ring: oklch(0.7 0.18 200);
+  --chart-1: oklch(0.7 0.18 200);
+  --chart-2: oklch(0.75 0.18 180);
+  --chart-3: oklch(0.65 0.2 280);
+  --chart-4: oklch(0.78 0.18 60);
+  --chart-5: oklch(0.7 0.2 340);
+  --sidebar: oklch(0.18 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.01 240);
+  --sidebar-primary: oklch(0.7 0.18 200);
+  --sidebar-primary-foreground: oklch(0.16 0.02 240);
+  --sidebar-accent: oklch(0.28 0.03 240);
+  --sidebar-accent-foreground: oklch(0.95 0.01 240);
+  --sidebar-border: oklch(0.3 0.03 240 / 50%);
+  --sidebar-ring: oklch(0.7 0.18 200);
+
+  /* 自定义科幻色系 */
+  --sci-bg-primary: #050a18;
+  --sci-bg-secondary: #0a1428;
+  --sci-bg-card: rgba(13, 25, 48, 0.6);
+  --sci-border: rgba(56, 189, 248, 0.18);
+  --sci-border-strong: rgba(56, 189, 248, 0.4);
+  --sci-glow-cyan: #06b6d4;
+  --sci-glow-blue: #3b82f6;
+  --sci-text-primary: #e2e8f0;
+  --sci-text-secondary: #94a3b8;
+  --sci-text-muted: #64748b;
+  --sci-accent-amber: #fbbf24;
+  --sci-accent-emerald: #10b981;
+  --sci-accent-rose: #f43f5e;
+}
+
+.dark {
+  --background: oklch(0.16 0.02 240);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.22 0.025 240);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.22 0.025 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.7 0.18 200);
+  --primary-foreground: oklch(0.16 0.02 240);
+  --secondary: oklch(0.28 0.03 240);
+  --secondary-foreground: oklch(0.95 0.01 240);
+  --muted: oklch(0.25 0.02 240);
+  --muted-foreground: oklch(0.7 0.02 240);
+  --accent: oklch(0.7 0.18 200);
+  --accent-foreground: oklch(0.16 0.02 240);
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(0.3 0.03 240 / 50%);
+  --input: oklch(0.25 0.02 240);
+  --ring: oklch(0.7 0.18 200);
+}
+
+/* ========== 亮色主题（白底）========== */
+.light {
+  --radius: 0.5rem;
+  --background: oklch(0.99 0.005 240);
+  --foreground: oklch(0.18 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 240);
+  --primary: oklch(0.55 0.18 220);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --secondary: oklch(0.96 0.01 240);
+  --secondary-foreground: oklch(0.2 0.02 240);
+  --muted: oklch(0.96 0.01 240);
+  --muted-foreground: oklch(0.45 0.02 240);
+  --accent: oklch(0.55 0.18 220);
+  --accent-foreground: oklch(0.99 0.005 240);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.9 0.01 240);
+  --input: oklch(0.96 0.01 240);
+  --ring: oklch(0.55 0.18 220);
+  --chart-1: oklch(0.55 0.18 220);
+  --chart-2: oklch(0.6 0.18 180);
+  --chart-3: oklch(0.5 0.2 280);
+  --chart-4: oklch(0.65 0.18 60);
+  --chart-5: oklch(0.55 0.2 340);
+
+  /* 亮色主题下的科幻色系覆盖 */
+  --sci-bg-primary: #f8fafc;
+  --sci-bg-secondary: #ffffff;
+  --sci-bg-card: rgba(255, 255, 255, 0.85);
+  --sci-border: rgba(59, 130, 246, 0.2);
+  --sci-border-strong: rgba(59, 130, 246, 0.45);
+  --sci-glow-cyan: #0891b2;
+  --sci-glow-blue: #2563eb;
+  --sci-text-primary: #0f172a;
+  --sci-text-secondary: #475569;
+  --sci-text-muted: #94a3b8;
+  --sci-accent-amber: #d97706;
+  --sci-accent-emerald: #059669;
+  --sci-accent-rose: #e11d48;
+}
+
+/* 亮色主题下 body 背景 */
+html.light body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59, 130, 246, 0.06), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 110%, rgba(168, 85, 247, 0.05), transparent),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* 亮色主题下的卡片样式调整 */
+html.light .sci-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border-color: rgba(59, 130, 246, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+html.light .sci-card::before,
+html.light .sci-card::after {
+  border-color: var(--sci-glow-blue);
+}
+
+html.light .sci-pill {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(59, 130, 246, 0.2);
+  color: var(--sci-text-secondary);
+}
+
+html.light .sci-grid-bg {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+}
+
+html.light .sci-bar-track {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+html.light .sci-scroll::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
+}
+
+html.light .sci-scroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html, body {
+    background: var(--sci-bg-primary);
+    color: var(--sci-text-primary);
+    min-height: 100vh;
+  }
+  /* 默认（暗色）body 背景 */
+  html.dark body,
+  html:not(.light) body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, rgba(56, 189, 248, 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 80% 110%, rgba(99, 102, 241, 0.08), transparent),
+      linear-gradient(180deg, #050a18 0%, #0a1428 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* ========== 科幻大屏装饰类 ========== */
+
+/* 网格背景 */
+.sci-grid-bg {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* 卡片基础样式 */
+.sci-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(13, 25, 48, 0.7) 0%, rgba(8, 17, 35, 0.7) 100%);
+  border: 1px solid var(--sci-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 6px;
+}
+
+.sci-card::before,
+.sci-card::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--sci-glow-cyan);
+  pointer-events: none;
+}
+
+/* 左上角标 */
+.sci-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+  border-top-left-radius: 6px;
+}
+
+/* 右下角标 */
+.sci-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+  border-bottom-right-radius: 6px;
+}
+
+/* 卡片 hover 发光 */
+.sci-card-hover:hover {
+  border-color: var(--sci-border-strong);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* 发光文字 */
+.sci-glow-text {
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* 数据数字 - 等宽 + 发光 */
+.sci-number {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  letter-spacing: -0.02em;
+}
+
+/* 标签栏 - 胶囊样式 */
+.sci-pill {
+  position: relative;
+  border: 1px solid var(--sci-border);
+  background: rgba(13, 25, 48, 0.5);
+  color: var(--sci-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.sci-pill:hover {
+  border-color: var(--sci-border-strong);
+  color: var(--sci-text-primary);
+}
+
+.sci-pill-active {
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* 顶部扫描线动画 */
+@keyframes sci-scan {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+.sci-scan-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sci-glow-cyan), transparent);
+  animation: sci-scan 4s ease-in-out infinite;
+}
+
+/* 状态点 - 呼吸灯 */
+@keyframes sci-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px currentColor; }
+  50% { opacity: 0.5; box-shadow: 0 0 8px currentColor; }
+}
+
+.sci-pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: sci-pulse 2s ease-in-out infinite;
+}
+
+/* 自定义滚动条 */
+.sci-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.sci-scroll::-webkit-scrollbar-track {
+  background: rgba(13, 25, 48, 0.5);
+}
+
+.sci-scroll::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 2px;
+}
+
+.sci-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* 渐变文字 */
+.sci-gradient-text {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 数据条进度 */
+.sci-bar-track {
+  background: rgba(56, 189, 248, 0.08);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.sci-bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  position: relative;
+}
+
+.sci-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: sci-shimmer 2s linear infinite;
+}
+
+@keyframes sci-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 段落标题左侧装饰条 */
+.sci-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sci-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.sci-section-title::before {
+  content: '';
+  width: 3px;
+  height: 12px;
+  background: linear-gradient(180deg, var(--sci-glow-cyan), transparent);
+  border-radius: 1px;
+}
+
+/* Header 主题适配 */
+.sci-header {
+  background: rgba(5, 10, 24, 0.6);
+}
+
+html.light .sci-header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(59, 130, 246, 0.15);
+}
+
+/* 地图标题栏主题适配 */
+html.light .sci-map-titlebar {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.92), transparent) !important;
+}
+
+/* 地图底部状态条主题适配 */
+html.light .sci-map-statusbar {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.92), transparent) !important;
+}
+
+/* ========== 主题感知文字色工具类 ========== */
+/* 主文字色（深色主题浅色 / 亮色主题深色） */
+.sci-t-primary {
+  color: #e2e8f0;
+}
+html.light .sci-t-primary {
+  color: #0f172a;
+}
+
+/* 次级文字色 */
+.sci-t-secondary {
+  color: #cbd5e1;
+}
+html.light .sci-t-secondary {
+  color: #334155;
+}
+
+/* 三级文字色（标签、辅助说明） */
+.sci-t-tertiary {
+  color: #94a3b8;
+}
+html.light .sci-t-tertiary {
+  color: #64748b;
+}
+
+/* 弱化文字色（占位、提示） */
+.sci-t-muted {
+  color: #64748b;
+}
+html.light .sci-t-muted {
+  color: #94a3b8;
+}
+
+/* 链接色 */
+.sci-t-link {
+  color: #06b6d4;
+}
+html.light .sci-t-link {
+  color: #0891b2;
+}
+
+/* 选中态文字色 */
+.sci-t-active {
+  color: #ffffff;
+}
+html.light .sci-t-active {
+  color: #0f172a;
+}
+
+/* 分隔符颜色 */
+.sci-t-divider {
+  color: #475569;
+}
+html.light .sci-t-divider {
+  color: #cbd5e1;
+}
+
+/* 数据集胶囊 - 未选中态文字色 */
+.sci-pill-text {
+  color: #cbd5e1;
+}
+html.light .sci-pill-text {
+  color: #475569;
+}
+html.light .sci-pill-text:hover {
+  color: #0f172a;
+}
+
+/* 边框颜色适配 */
+.sci-border-soft {
+  border-color: rgba(56, 189, 248, 0.1);
+}
+html.light .sci-border-soft {
+  border-color: rgba(59, 130, 246, 0.12);
+}
+
+/* hover 背景适配 */
+.sci-hover-soft:hover {
+  background-color: rgba(56, 189, 248, 0.05);
+}
+html.light .sci-hover-soft:hover {
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+/* 卡片内部小卡片背景适配 */
+.sci-subcard {
+  background-color: rgba(56, 189, 248, 0.05);
+  border-color: rgba(56, 189, 248, 0.1);
+}
+html.light .sci-subcard {
+  background-color: rgba(241, 245, 249, 0.7);
+  border-color: rgba(59, 130, 246, 0.12);
+}
+
+/* 数据集胶囊 - 未选中背景 */
+.sci-pill-bg {
+  background-color: rgba(13, 25, 48, 0.5);
+  border-color: rgba(56, 189, 248, 0.18);
+}
+html.light .sci-pill-bg {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Tooltip/弹层背景 */
+.sci-popover-bg {
+  background-color: rgba(5, 10, 24, 0.95);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #e2e8f0;
+}
+html.light .sci-popover-bg {
+  background-color: rgba(255, 255, 255, 0.98);
+  border-color: rgba(59, 130, 246, 0.25);
+  color: #0f172a;
+}
+
+/* ========== Cyan 数据强调色（双主题适配） ========== */
+.sci-t-cyan {
+  color: #22d3ee;
+}
+html.light .sci-t-cyan {
+  color: #0891b2;
+}
+
+.sci-t-cyan-strong {
+  color: #67e8f9;
+}
+html.light .sci-t-cyan-strong {
+  color: #0e7490;
+}
+
+/* 紫色 */
+.sci-t-purple {
+  color: #c4b5fd;
+}
+html.light .sci-t-purple {
+  color: #7c3aed;
+}
+
+/* 琥珀色 */
+.sci-t-amber {
+  color: #fbbf24;
+}
+html.light .sci-t-amber {
+  color: #d97706;
+}
+
+/* 翠绿色 */
+.sci-t-emerald {
+  color: #6ee7b7;
+}
+html.light .sci-t-emerald {
+  color: #059669;
+}
+
+/* 状态点颜色 */
+.sci-dot-cyan {
+  background-color: #22d3ee;
+}
+html.light .sci-dot-cyan {
+  background-color: #0891b2;
+}
+
+.sci-dot-emerald {
+  background-color: #10b981;
+}
+html.light .sci-dot-emerald {
+  background-color: #059669;
+}
+
+.sci-dot-amber {
+  background-color: #f59e0b;
+}
+html.light .sci-dot-amber {
+  background-color: #d97706;
+}
+
+/* 按钮 - 主操作 */
+.sci-btn-cyan {
+  border-color: rgba(34, 211, 238, 0.3);
+  background: linear-gradient(to right, rgba(34, 211, 238, 0.15), rgba(59, 130, 246, 0.15));
+  color: #a5f3fc;
+}
+.sci-btn-cyan:hover {
+  background: linear-gradient(to right, rgba(34, 211, 238, 0.25), rgba(59, 130, 246, 0.25));
+}
+html.light .sci-btn-cyan {
+  border-color: rgba(8, 145, 178, 0.4);
+  background: linear-gradient(to right, rgba(8, 145, 178, 0.1), rgba(37, 99, 235, 0.1));
+  color: #0e7490;
+}
+html.light .sci-btn-cyan:hover {
+  background: linear-gradient(to right, rgba(8, 145, 178, 0.18), rgba(37, 99, 235, 0.18));
+}
+
+/* 按钮 - 次操作 */
+.sci-btn-ghost {
+  border-color: rgba(56, 189, 248, 0.2);
+  background-color: rgba(56, 189, 248, 0.05);
+  color: #a5f3fc;
+}
+.sci-btn-ghost:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  background-color: rgba(56, 189, 248, 0.1);
+}
+html.light .sci-btn-ghost {
+  border-color: rgba(59, 130, 246, 0.25);
+  background-color: rgba(59, 130, 246, 0.05);
+  color: #475569;
+}
+html.light .sci-btn-ghost:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #0f172a;
+}
+
+/* 按钮 - 下载强调 */
+.sci-btn-emerald {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.15), rgba(34, 211, 238, 0.15));
+  color: #6ee7b7;
+}
+.sci-btn-emerald:hover {
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.25), rgba(34, 211, 238, 0.25));
+}
+html.light .sci-btn-emerald {
+  border-color: rgba(5, 150, 105, 0.4);
+  background: linear-gradient(to right, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.1));
+  color: #059669;
+}
+html.light .sci-btn-emerald:hover {
+  background: linear-gradient(to right, rgba(5, 150, 105, 0.2), rgba(8, 145, 178, 0.2));
+}
+
+/* ========== 省份详情卡 - 双主题适配 ========== */
+.sci-detail-card {
+  background: linear-gradient(160deg, rgba(13, 25, 48, 0.96) 0%, rgba(8, 17, 35, 0.92) 100%);
+  border: 1px solid var(--sci-border-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+html.light .sci-detail-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 247, 252, 0.92) 100%);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 32px rgba(8, 47, 73, 0.12);
+}
+
+/* 关闭按钮 */
+.sci-detail-close {
+  color: #94a3b8;
+}
+.sci-detail-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+html.light .sci-detail-close {
+  color: #64748b;
+}
+html.light .sci-detail-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #0f172a;
+}
+
+/* 子标题栏（数据集标签） */
+.sci-detail-subheader {
+  background-color: rgba(56, 189, 248, 0.05);
+  border-color: rgba(56, 189, 248, 0.1);
+}
+html.light .sci-detail-subheader {
+  background-color: rgba(241, 245, 249, 0.8);
+  border-color: rgba(59, 130, 246, 0.12);
+}
+
+/* 列表容器 */
+.sci-detail-list {
+  divide-color: rgba(56, 189, 248, 0.05);
+}
+html.light .sci-detail-list {
+  divide-color: rgba(59, 130, 246, 0.08);
+}
+
+/* 列表项 */
+.sci-detail-item {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.05);
+}
+.sci-detail-item:hover {
+  background-color: rgba(56, 189, 248, 0.05);
+}
+html.light .sci-detail-item {
+  border-bottom-color: rgba(59, 130, 246, 0.08);
+}
+html.light .sci-detail-item:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* 列表项主名称 */
+.sci-detail-name {
+  color: #e2e8f0;
+}
+html.light .sci-detail-name {
+  color: #0f172a;
+}
+
+/* 列表项元数据 */
+.sci-detail-meta {
+  color: #64748b;
+}
+html.light .sci-detail-meta {
+  color: #64748b;
+}
+
+/* 底部 footer */
+.sci-detail-footer {
+  background-color: rgba(5, 10, 24, 0.7);
+  border-color: rgba(56, 189, 248, 0.1);
+}
+html.light .sci-detail-footer {
+  background-color: rgba(248, 250, 252, 0.95);
+  border-color: rgba(59, 130, 246, 0.12);
+}
+
+/* ========== 区域筛选按钮 ========== */
+.sci-region-btn {
+  position: relative;
+}
+.sci-region-active {
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(244, 63, 94, 0.05)) !important;
+  color: #fda4af !important;
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.25);
+}
+html.light .sci-region-active {
+  border-color: rgba(225, 29, 72, 0.45) !important;
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.1), rgba(225, 29, 72, 0.03)) !important;
+  color: #be123c !important;
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.15);
+}
+
+/* 区域筛选下拉菜单 - 不透明背景，避免被地图遮挡 */
+.sci-region-dropdown {
+  background-color: #0a1428 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: none !important;
+}
+html.light .sci-region-dropdown {
+  background-color: #ffffff !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #0f172a !important;
+}
+
+.sci-region-item {
+  border-left: 2px solid transparent;
+}
+.sci-region-item:hover {
+  background-color: rgba(56, 189, 248, 0.08);
+  border-left-color: rgba(56, 189, 248, 0.4);
+}
+html.light .sci-region-item:hover {
+  background-color: rgba(59, 130, 246, 0.06);
+  border-left-color: rgba(59, 130, 246, 0.5);
+}
+
+.sci-region-item-active {
+  background-color: rgba(56, 189, 248, 0.12);
+  border-left-color: #22d3ee;
+}
+html.light .sci-region-item-active {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left-color: #0891b2;
+}
+
+/* ========== 数据集选中态 - 简洁风格：细边框 + 主题色背景（inline style 控制） ========== */
+.sci-dataset-active {
+  border-width: 1px !important;
+}
+
+/* 选中态文字颜色 - 强制白色（暗色）/ 深色（亮色） */
+.sci-dataset-active .sci-t-secondary,
+.sci-dataset-active .sci-t-active {
+  color: #ffffff !important;
+}
+html.light .sci-dataset-active .sci-t-secondary,
+html.light .sci-dataset-active .sci-t-active {
+  color: #0f172a !important;
+}
+
+/* ========== TOP10 图表切换器 ========== */
+.sci-chart-switcher {
+  border-color: rgba(56, 189, 248, 0.2);
+  background-color: rgba(13, 25, 48, 0.5);
+}
+html.light .sci-chart-switcher {
+  border-color: rgba(59, 130, 246, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sci-chart-btn {
+  color: #94a3b8;
+}
+.sci-chart-btn:hover {
+  color: #cbd5e1;
+  background-color: rgba(56, 189, 248, 0.05);
+}
+html.light .sci-chart-btn {
+  color: #64748b;
+}
+html.light .sci-chart-btn:hover {
+  color: #334155;
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+.sci-chart-btn-active {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(59, 130, 246, 0.2));
+  color: #67e8f9 !important;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+}
+html.light .sci-chart-btn-active {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(37, 99, 235, 0.15));
+  color: #0e7490 !important;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.2);
+}
+
+/* ========== 刷新提示框排版（每类一行） ========== */
+.mct-toast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  margin-top: 4px;
+}
+.mct-toast-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+  font-size: 11px;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.06);
+}
+.mct-toast-row:last-child {
+  border-bottom: none;
+}
+.mct-toast-name {
+  font-family: var(--font-geist-sans), sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mct-toast-num {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-weight: 700;
+  color: #67e8f9;
+  white-space: nowrap;
+}

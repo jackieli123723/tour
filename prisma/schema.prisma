@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// MCT 数据集缓存表 - 存储按 type 抓取的省份数据统计
+model MctDatasetCache {
+  id        Int      @id @default(autoincrement())
+  typeId    Int      // 数据集类型 ID (10/11/135/138/143/54/145/148)
+  typeName  String   // 数据集名称
+  payload   String   // JSON 序列化后的完整数据（含 provinces 列表 + spot 详情）
+  total     Int      // 总条目数
+  fetchedAt DateTime @default(now()) @updatedAt
+
+  @@unique([typeId])
+  @@index([typeId])
+}
+
+// 省份主数据
+model MctProvince {
+  id        Int      @id
+  name      String
+  parentId  Int      @default(0)
+  typeId    Int      @default(1)
+  sort      Int      @default(0)
+  count     Int      @default(0)
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@index([parentId])
+  @@index([typeId])
+}
