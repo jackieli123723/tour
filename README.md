@@ -1,11 +1,11 @@
 # tour
  全国文化和旅游数据可视化大屏
-<img width="3600" height="1876" alt="image" src="https://github.com/user-attachments/assets/6c9796c1-7a6c-4d3b-b21c-0aeae534a9d9" />
-
-<img width="3600" height="1876" alt="image" src="https://github.com/user-attachments/assets/1948f327-9ef1-40f7-9d62-8751d5d7c2e8" />
+<video width="3600" height="1876" src="https://github.com/user-attachments/assets/a5ea0e83-df49-4d36-b83b-1d10b0c24cca" /> 
 
 
 # 全国文化和旅游数据可视化大屏
+<img width="3600" height="1876" alt="image" src="https://github.com/user-attachments/assets/6c9796c1-7a6c-4d3b-b21c-0aeae534a9d9" />
+<img width="3600" height="1876" alt="image" src="https://github.com/user-attachments/assets/1948f327-9ef1-40f7-9d62-8751d5d7c2e8" />
 
 基于 **文化和旅游部数据服务栏目**（sjfw.mct.gov.cn）公开名录数据的交互式可视化大屏。
 
